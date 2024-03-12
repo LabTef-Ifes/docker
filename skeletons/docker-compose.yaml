@@ -1,0 +1,36 @@
+services:
+  sk1:
+    image: labviros/is-skeletons-detector:0.0.2-openpose
+    command: ./rpc.bin
+    network_mode: host
+    runtime: nvidia
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    devices:
+      - "/dev/nvidiactl"
+      - "/dev/nvidia-uvm"
+      - "/dev/nvidia0"
+  
+  is-frame_transformation:
+    image: labviros/is-frame-transformation:0.0.4
+    command: ./service.bin /etc/conf/options.json
+    network_mode: host
+    volumes:
+      - $PWD/calibrations/ifes:/opt/ifes_calibration/
+      - $PWD/etc/conf/options.json:/etc/conf/options.json
+  
+  grouper:
+    image: mendonca/is-skeletons-grouper:0.0.4-debug
+    command: ./rpc.bin /options.json
+    network_mode: host
+    depends_on:
+      - is-frame_transformation
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    volumes:
+      - $PWD/is-skeletons-grouper/options.json:/opt/is/options.json
