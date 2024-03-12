@@ -1,0 +1,8 @@
+{
+    "broker_uri": "amqp://guest:guest@rabbitmq:5672",
+    "broker_management_api": {
+      "uri": "http://guest:guest@rabbitmq:15672",
+      "max_retries": 10,
+      "timeout": 5.0
+    }
+  }

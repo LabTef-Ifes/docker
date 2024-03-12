@@ -1,0 +1,62 @@
+{
+    "rabbitmq_uri": "amqp://guest:guest@0.0.0.0:5672",
+    "zipkin_uri": "http://0.0.0.0:9411",
+    "enable_tracing": false,
+    "camera": {
+      "id": 0,
+      "ip": "10.0.0.1",
+      "algorithm": "WEIGHTED_DIRECTIONAL_FILTER",
+      "onboard_color_processing": false,
+      "packet_size": 1500,
+      "packet_delay": 3000,
+      "packet_resend": true,
+      "packet_resend_timeout": 100,
+      "packet_resend_max_requests": 10000,
+      "reverse_x": false,
+      "use_turbojpeg": true,
+      "restart_period": 600,
+      "initial_config": {
+        "sampling": {
+          "frequency": 20.0
+        },
+        "image": {
+          "color_space": {
+            "value": "RGB"
+          },
+          "format": {
+            "format": "JPEG",
+            "compression": 0.8
+          },
+          "region": {
+            "vertices": [
+              {
+                "x": 0,
+                "y": 0
+              },
+              {
+                "x": 1440,
+                "y": 1080
+              }
+            ]
+          }
+        },
+        "camera": {
+          "gain": {
+            "automatic": true
+          },
+          "shutter": {
+            "automatic": true
+          },
+          "brightness": {
+            "ratio": 0.0
+          },
+          "white_balance_rv": {
+            "automatic": true
+          },
+          "white_balance_bu": {
+            "automatic": true
+          }
+        }
+      }
+    }
+  }

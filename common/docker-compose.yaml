@@ -1,0 +1,33 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.6-management
+    ports:
+      - 5672:5672 # amqp
+      - 15672:15672 # web
+    volumes:
+      - ./rabbitmq:/etc/rabbitmq
+    restart: always
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411
+    network_mode: "host"
+
+  is-mjpeg-server:
+    image: labviros/is-mjpeg-server:0.0.1
+    ports:
+      - 3000:3000
+    environment:
+      IS_URI: amqp://guest:guest@rabbitmq:5672
+    restart: always
+    depends_on:
+      - rabbitmq
+
+  is-broker-events:
+    image: labvisio/is-broker-events:0.1.0
+    restart: always
+    volumes:
+      - ./is-broker-events/options.json:/etc/is-broker-events/options.json
+    depends_on:
+      - rabbitmq
