@@ -1,3 +1,5 @@
+# Stopping containers
+`docker container stop $(docker container ls -q)`
 # cameras
 A pasta cameras possui os arquivos de configuração das câmeras individualmente, cada uma em sua pasta.
 
