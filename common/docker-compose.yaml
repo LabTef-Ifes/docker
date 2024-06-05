@@ -6,7 +6,7 @@ services:
       - 15672:15672 # web
     volumes:
       - ./rabbitmq:/etc/rabbitmq
-    restart: always
+    restart: on-failure
 
   zipkin:
     image: openzipkin/zipkin
@@ -20,13 +20,13 @@ services:
       - 3000:3000
     environment:
       IS_URI: amqp://guest:guest@rabbitmq:5672
-    restart: always
+    restart: on-failure
     depends_on:
       - rabbitmq
 
   is-broker-events:
     image: labvisio/is-broker-events:0.1.0
-    restart: always
+    restart: on-failure
     volumes:
       - ./is-broker-events/options.json:/etc/is-broker-events/options.json
     depends_on:
