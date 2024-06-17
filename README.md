@@ -1,6 +1,14 @@
 # Stopping containers
 `docker container stop $(docker container ls -q)`
-Inicie cada conjunto de containers em um terminal diferente de acordo com a necessidade. Para usar as câmeras ou executar a reconstrução de esqueletos, é necessário iniciar os dockers `common` antes e aguardar o processo de inicialização finalizar
+Inicie cada conjunto de containers em um terminal diferente de acordo com a necessidade. Para usar as câmeras ou executar a reconstrução de esqueletos, é necessário iniciar os dockers `common` antes e aguardar o processo de inicialização finalizar.
+
+# Requisitos
+
+- [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
+- [Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)
+- [Nvidia Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/1.14.3/install-guide.html#installing-with-apt)
+- [Nvidia Drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html)
+
 # common
 `cd cameras`
 `docker compose up`
