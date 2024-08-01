@@ -4,7 +4,7 @@
     "enable_tracing": false,
     "camera": {
       "id": 1,
-      "ip": "10.0.0.2",
+      "ip": "192.168.1.11",
       "algorithm": "WEIGHTED_DIRECTIONAL_FILTER",
       "onboard_color_processing": false,
       "packet_size": 1500,
@@ -17,7 +17,7 @@
       "restart_period": 600,
       "initial_config": {
         "sampling": {
-          "frequency": 20.0
+          "frequency": 14.0
         },
         "image": {
           "color_space": {

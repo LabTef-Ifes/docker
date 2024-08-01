@@ -18,7 +18,7 @@ services:
     command: ./service.bin /etc/conf/options.json
     network_mode: host
     volumes:
-      - $PWD/calibrations/ifes:/opt/ifes_calibration/
+      - $PWD/calibrations/crefes:/opt/ifes_calibration/
       - $PWD/etc/conf/options.json:/etc/conf/options.json
   
   grouper:
