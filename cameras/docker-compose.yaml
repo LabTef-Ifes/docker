@@ -3,26 +3,26 @@ services:
     image: labvisio/is-spinnaker-gateway:0.3.0
     volumes:
       - ./0/options.json:/etc/is-spinnaker-gateway/options.json
-    restart: always
+    restart: on-failure
     network_mode: host
   
   is-camera-1:
     image: labvisio/is-spinnaker-gateway:0.3.0
     volumes:
       - ./1/options.json:/etc/is-spinnaker-gateway/options.json
-    restart: always
+    restart: on-failure
     network_mode: host
 
   is-camera-2:
     image: labvisio/is-spinnaker-gateway:0.3.0
     volumes:
       - ./2/options.json:/etc/is-spinnaker-gateway/options.json
-    restart: always
+    restart: on-failure
     network_mode: host
 
   is-camera-3:
     image: labvisio/is-spinnaker-gateway:0.3.0
     volumes:
       - ./3/options.json:/etc/is-spinnaker-gateway/options.json
-    restart: always
+    restart: on-failure
     network_mode: host
